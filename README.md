@@ -1,0 +1,2 @@
+# NekoQQBot
+一个简易的用于实现WebSocketQQ官方机器人的框架
