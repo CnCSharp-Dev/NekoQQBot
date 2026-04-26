@@ -1,6 +1,6 @@
 # NekoQQBot
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg) ![License](https://img.shields.io/badge/dotnet-8.0-red.svg) ![Releases](https://img.shields.io/github/v/release/CnCSharp-Dev/NekoQQBot) ![Last Commit](https://img.shields.io/github/last-commit/CnCSharp-Dev/NekoQQBot) ![Platform](https://img.shields.io/badge/platform-Windows Linux macOS-lightgrey)
+![License](https://img.shields.io/badge/license-MIT-blue.svg) ![License](https://img.shields.io/badge/dotnet-8.0-red.svg) ![Releases](https://img.shields.io/github/v/release/CnCSharp-Dev/NekoQQBot) ![Last Commit](https://img.shields.io/github/last-commit/CnCSharp-Dev/NekoQQBot)
 
 ## ✨ 介绍
 
