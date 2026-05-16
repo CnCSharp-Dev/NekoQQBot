@@ -10,20 +10,18 @@
 
 适用于QQ官方机器人的社区框架，灵感与部分代码来源于[QQBot.NET](https://github.com/ZiYuKing/QQBot.NET)，提供高性能、可扩展的机器人服务核心。
 
-
-
- - 内置对象池库[PoolingLib](https://github.com/CNCSharp-Dev/PoolingLib) & 结构化Json减少GC压力，100次指令/秒后**控制台程序**的内存占用最高为31.8MB，**WPF窗口程序**的内存占用最高为82.3MB（WPF版本因XAML-UI渲染开销稍高，但仍在合理范围内。），可从[测试](project_test.md)来了解不同操作系统/运行时长等详细测试内容。
+ - 内置对象池库[PoolingLib](https://github.com/CNCSharp-Dev/PoolingLib) & 结构化Json减少GC压力(因为堆栈分配问题，后续会进行优化)
  - 高效的事件驱动模型，自动注册插件事件，告别大量繁琐的手动注册。
  - 允许加载第三方程序集/依赖来扩展命令、自定义内容。
  - 一个程序只能指定单个机器人，防止多机器人造成混乱。
  - 利用[LiteDB](https://github.com/litedb-org/LiteDB) 和 [Serilog.Sinks.File](https://github.com/serilog/serilog-sinks-file)储存WebSocket日志/聊天记录于子目录`logs`与`databases`中。
- 
+
 ## 📦 项目结构
 
 ```text
 NekoQQBot/
 ├── NekoBot.Lib						# 底层库，提供WebSocket连接
-├── NekoBot.Service					# 服务处理库，用于处理插件/指e令/配置文件注册&机器人创建
+├── NekoBot.Service					# 服务处理库，用于处理插件/指令/配置文件注册&机器人创建
 |
 ├── Official-Plugins
 |   ├── NekoBot.HttpTransporter    	# Http(s)转发插件，可通过外接ASP.NET快速实现指令
@@ -31,13 +29,14 @@ NekoQQBot/
 |
 └── Official-Tools/
 	├── NekoBot.WPFProgram			 # WPF窗口版应用程序
-	└── NekoBot.ConsoleProgram		 # 控制台版应用程序，使用Serilog
+	├── NekoBot.ConsoleProgram		 # 控制台版应用程序，使用Serilog
+	└── NekoBot.ExtensionTools		 # 提供日志/聊天记录与自动GC回收
 ```
 
 | 项目 | 描述 |
 |------|------|
 | `NekoBot.Lib` | 实现机器人核心、事件系统、WebSocket客户端、对象池等基础功能 |
-| `NekoBot.Service` | 实现高级服务API、命令系统、配置管理、数据存储 |
+| `NekoBot.Service` | 实现高级服务API、命令系统、配置管理 |
 | `NekoBot.WPFProgram` | 现代化WPF桌面GUI，适合需要可视化管理的用户 |
 | `NekoBot.ConsoleProgram` | 轻量级控制台版本，适合服务器部署 |
 
@@ -100,7 +99,7 @@ public abstract class Plugin : IPlugin
 
 ```yaml
 # 注册的事件，具体参考QQ官方开发文档
-intent: ALL_PUBLIC #参照下表
+intent: ALL_PUBLIC # 参照下表
 # 机器人的AppId
 appId: '$这里填写你机器人的AppId$'
 # 机器人的Secret
