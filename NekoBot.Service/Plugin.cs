@@ -12,7 +12,7 @@ namespace NekoBot.Service
         /// <inheritdoc/>
         public abstract string Name { get; }
         /// <inheritdoc/>
-        public virtual PluginType PluginType { get; } = PluginType.Misc;
+        public virtual PluginType PluginType { get; } = PluginType.Default;
         /// <inheritdoc/>
         public virtual void OnEnabled()
         {
