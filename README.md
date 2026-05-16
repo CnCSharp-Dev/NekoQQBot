@@ -79,7 +79,24 @@ public abstract class Plugin : IPlugin
 
 加载流程图如下，具体参考NekoBot.Service的内容。
 
-![流程图文件](docs/plugin_loader.md)
+#### 📦 插件加载流程：
+
+```flow
+st=>start: 开始加载
+op_load_dep=>operation: 加载依赖程序集
+op_load_plugin=>operation: 加载插件程序集
+cond_plugin=>condition: 是否继承 Plugin?
+op_register=>operation: 注册插件
+op_load_config=>operation: 加载插件配置
+op_disable=>operation: 调用 OnDisabled()
+op_enable=>operation: 调用 OnEnabled()
+op_init_eb=>operation: 初始化事件总线
+e=>end: 加载完成
+
+st->op_load_dep->op_load_plugin->cond_plugin
+cond_plugin(yes)->op_register->op_load_config->op_disable->op_enable->op_init_eb->e
+cond_plugin(no)->e
+```
 
 ## 🚀 快速开始
 
@@ -106,7 +123,7 @@ appId: '$这里填写你机器人的AppId$'
 secret: '$这里填写你机器人的Secret$'
 ```
 
-> 推荐订阅的事件如下，具体内容/对照表可从[Intents.md](docs/intents.md)获取:
+> 推荐订阅的事件如下，具体内容/对照表可从[Intents.md](intents.md)获取:
 
 >| 事件名称 | 配置值 | 推荐使用范围 |
 |-----|-----|-----|
