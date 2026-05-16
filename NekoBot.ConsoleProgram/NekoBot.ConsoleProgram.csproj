@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<PlatformTarget>x64</PlatformTarget>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<Authors>CnCSharp-Dev</Authors>
+		<ApplicationIcon>Properties\Resources\icons\nekoqq.ico</ApplicationIcon>
+		<PackageProjectUrl>https://github.com/CnCSharp-Dev/NekoQQBot</PackageProjectUrl>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<AssemblyTitle>NekoBot-Official 控制台版应用程序</AssemblyTitle>
+		<Copyright>©CnCSharp-Dev 2026</Copyright>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<Optimize>True</Optimize>
+		<DebugType>embedded</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DebugType>embedded</DebugType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Properties\Resources\icons\nekoqq.ico" />
+		<EmbeddedResource Include="Properties\Resources\icons\nekoqq_delegate.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		<PackageReference Include="Serilog" Version="4.3.1" />
+		<PackageReference Include="Serilog.Sinks.Async" Version="2.1.0" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
+		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+		<PackageReference Include="YamlDotNet" Version="17.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\NekoBot.Lib\NekoBot.Lib.csproj" />
+		<ProjectReference Include="..\NekoBot.Service\NekoBot.Service.csproj" />
+	</ItemGroup>
+</Project>
