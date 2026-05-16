@@ -9,11 +9,8 @@
 ### 📃 准备工作:
 
 > 您的插件项目需要引用以下框架程序集（可从机器人程序目录获取）：
-
 > - NekoBot.Service.dll
-
 > - NekoBot.Lib.dll			(可选)
-
 >如果使用 `dotnet 命令行`或 `Visual Studio`，请手动添加这些引用。
 
 
