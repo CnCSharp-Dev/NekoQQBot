@@ -2,7 +2,7 @@
 using NekoBot.Service;
 using NekoBot.Service.Helpers;
 
-namespace NekoBot.ConsoleProgram
+namespace NekoBot.ConsoleProgram.Internal
 {
     /// <summary>
     /// 配置文件加载器
