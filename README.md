@@ -79,7 +79,7 @@ public abstract class Plugin : IPlugin
 
 加载流程图如下，具体参考NekoBot.Service的内容。
 
-![流程图](plugin_loader.png)
+![流程图文件](docs/plugin_loader.md)
 
 ## 🚀 快速开始
 
@@ -106,7 +106,7 @@ appId: '$这里填写你机器人的AppId$'
 secret: '$这里填写你机器人的Secret$'
 ```
 
-> 推荐订阅的事件如下，具体内容/对照表可从[Intents.md](intents.md)获取:
+> 推荐订阅的事件如下，具体内容/对照表可从[Intents.md](docs/intents.md)获取:
 
 >| 事件名称 | 配置值 | 推荐使用范围 |
 |-----|-----|-----|
