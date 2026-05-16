@@ -10,7 +10,7 @@
 
 适用于QQ官方机器人的社区框架，灵感与部分代码来源于[QQBot.NET](https://github.com/ZiYuKing/QQBot.NET)，提供高性能、可扩展的机器人服务核心。
 
- - 内置对象池库[PoolingLib](https://github.com/CNCSharp-Dev/PoolingLib) & 结构化Json减少GC压力(因为堆栈分配问题，后续会进行优化)
+ - 内置对象池库 [PoolingLib](https://github.com/CNCSharp-Dev/PoolingLib) 与结构化 JSON 减少 GC 压力（部分堆栈分配问题将在后续版本优化）
  - 高效的事件驱动模型，自动注册插件事件，告别大量繁琐的手动注册。
  - 允许加载第三方程序集/依赖来扩展命令、自定义内容。
  - 一个程序只能指定单个机器人，防止多机器人造成混乱。
@@ -71,7 +71,7 @@ public abstract class Plugin : IPlugin
     {
     }
 
-    public virtual void LoadConfig() //加载配置文件调用的方法，为底层提供，通常不建议重写
+    public virtual void LoadConfig() // 由框架调用以加载配置，一般无需重写（除非自定义配置加载逻辑）
     {
     }
 }
@@ -79,7 +79,7 @@ public abstract class Plugin : IPlugin
 
 加载流程图如下，具体参考NekoBot.Service的内容。
 
-#### 📦 插件加载流程：
+#### 📦 插件加载流程(若无法显示，可复制代码块到flowchart在线编辑器查看)：
 
 ```flow
 st=>start: 开始加载
@@ -123,7 +123,7 @@ appId: '$这里填写你机器人的AppId$'
 secret: '$这里填写你机器人的Secret$'
 ```
 
-> 推荐订阅的事件如下，具体内容/对照表可从[Intents.md](intents.md)获取:
+> 推荐订阅的事件如下，具体内容/对照表可从[NekoBot.Lib/Enums/Intents.cs](Intents.cs)获取:
 
 >| 事件名称 | 配置值 | 推荐使用范围 |
 |-----|-----|-----|
@@ -256,7 +256,7 @@ namespace YourPlugin
 
 ### 如何提交issue (想法)🤓
 - **1**.可以不具体的描述想法，但请提交**合理且现实**的想法。
-- **2**.如果有能能力可以提交PR或者部分源代码。
+- **2**.如果有能力，可以提交 PR 或提供部分源代码。
 - **3**.提交您的想法。
 
 
