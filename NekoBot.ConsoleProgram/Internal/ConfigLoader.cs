@@ -32,7 +32,7 @@ namespace NekoBot.ConsoleProgram
             }
             if (!File.Exists(Paths.Configs + "\\bot.yml"))
             {
-                File.WriteAllText(Paths.Configs + "\\bot.", YamlHelper.Serialize(BotConfigTemp));
+                File.WriteAllText(Paths.Configs + "\\bot.yml", YamlHelper.Serialize(BotConfigTemp));
                 result = "未检测到配置文件，已新建配置文件，请手动设置\"bot.yml\"!";
                 return false;
             }
