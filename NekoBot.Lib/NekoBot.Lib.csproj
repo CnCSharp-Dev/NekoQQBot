@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<PlatformTarget>x64</PlatformTarget>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<Authors>CnCSharp-Dev</Authors>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<PackageProjectUrl>https://github.com/CnCSharp-Dev/NekoQQBot</PackageProjectUrl>
+		<OutputType>Library</OutputType>
+		<AssemblyTitle>NekoBot-Official 核心功能实现库</AssemblyTitle>
+		<Copyright>©CnCSharp-Dev 2026</Copyright>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<Optimize>True</Optimize>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DebugType>none</DebugType>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		<PackageReference Include="PoolingLib" Version="1.0.3" />
+		<PackageReference Include="WatsonWebsocket" Version="4.1.8" />
+		<PackageReference Include="YamlDotNet" Version="17.0.1" />
+	</ItemGroup>
+</Project>
